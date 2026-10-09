@@ -18,9 +18,19 @@ Temperature in °F or K is converted to °C. If a sensor is `unknown` or `unavai
 
 ## Installation
 
-**HACS (custom repository):** add this repo as an *Integration* custom repository, install **SONOFF AirGuard to WAQI Uploader**, then restart Home Assistant.
+### HACS (custom repository)
 
-**Manual:** copy `custom_components/sonoff_waqi` into your Home Assistant `config/custom_components/` folder and restart.
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Atsukio&repository=ha-sonoff-waqi-integration&category=integration)
+
+Or add it manually:
+
+1. In Home Assistant, open **HACS** → the three-dot menu (top right) → **Custom repositories**.
+2. Paste `https://github.com/Atsukio/ha-sonoff-waqi-integration`, set the type to **Integration**, and click **Add**.
+3. Find **SONOFF AirGuard to WAQI Uploader** in HACS, click **Download**, then restart Home Assistant.
+
+### Manual
+
+ copy `custom_components/sonoff_waqi` into your Home Assistant `config/custom_components/` folder and restart.
 
 ## Setup
 
