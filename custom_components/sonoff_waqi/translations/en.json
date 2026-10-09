@@ -1,0 +1,77 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SONOFF AirGuard to WAQI",
+        "description": "Pick the AirGuard (SAWF-07P) sensor entities exposed by the Matter integration and enter your WAQI data platform token (https://aqicn.org/data-platform/token/).",
+        "data": {
+          "station_id": "Station ID",
+          "token": "WAQI token",
+          "station_name": "Station name",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "pm25_entity": "PM2.5 sensor",
+          "pm10_entity": "PM10 sensor",
+          "temperature_entity": "Temperature sensor",
+          "humidity_entity": "Humidity sensor",
+          "interval": "Upload interval"
+        },
+        "data_description": {
+          "station_id": "Unique, private ID for this station on WAQI (max 128 characters). Cannot be changed later.",
+          "station_name": "Public name shown on the WAQI map.",
+          "interval": "Readings are averaged over this window. WAQI recommends 60 seconds."
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "WAQI rejected the token.",
+      "cannot_connect": "Could not reach WAQI.",
+      "location_incomplete": "Enter both latitude and longitude, or neither.",
+      "unknown": "Unexpected response from WAQI."
+    },
+    "abort": {
+      "already_configured": "A station with this ID is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "WAQI uploader options",
+        "data": {
+          "token": "WAQI token",
+          "station_name": "Station name",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "pm25_entity": "PM2.5 sensor",
+          "pm10_entity": "PM10 sensor",
+          "temperature_entity": "Temperature sensor",
+          "humidity_entity": "Humidity sensor",
+          "interval": "Upload interval"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "WAQI rejected the token.",
+      "cannot_connect": "Could not reach WAQI.",
+      "location_incomplete": "Enter both latitude and longitude, or neither.",
+      "unknown": "Unexpected response from WAQI."
+    }
+  },
+  "entity": {
+    "button": {
+      "upload_now": { "name": "Upload now" }
+    },
+    "sensor": {
+      "upload_status": {
+        "name": "Upload status",
+        "state": {
+          "pending": "Pending",
+          "ok": "OK",
+          "error": "Error",
+          "skipped": "Skipped (no data)"
+        }
+      },
+      "last_upload": { "name": "Last upload" }
+    }
+  }
+}
