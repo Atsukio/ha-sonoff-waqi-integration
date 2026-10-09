@@ -1,12 +1,13 @@
 {
   "domain": "sonoff_waqi",
   "name": "SONOFF AirGuard to WAQI Uploader",
-  "codeowners": [],
+  "codeowners": ["@Atsukio"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://aqicn.org/data-feed/upload-api",
+  "documentation": "https://github.com/Atsukio/ha-sonoff-waqi-integration",
   "integration_type": "service",
   "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/Atsukio/ha-sonoff-waqi-integration/issues",
   "requirements": [],
   "version": "1.0.0"
 }
