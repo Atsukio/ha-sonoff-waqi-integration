@@ -21,7 +21,7 @@ CONF_PM10_ENTITY: Final = "pm10_entity"
 CONF_TEMPERATURE_ENTITY: Final = "temperature_entity"
 CONF_HUMIDITY_ENTITY: Final = "humidity_entity"
 
-DEFAULT_STATION_ID: Final = "sonoff-sawf-07p"
+DEFAULT_STATION_ID: Final = "my-waqi-station"
 DEFAULT_STATION_NAME: Final = "My Air Quality Station"
 DEFAULT_INTERVAL: Final = 60  # seconds; WAQI recommends 1-minute averages
 MIN_INTERVAL: Final = 60

@@ -1,10 +1,10 @@
 # WAQI Station Uploader
 
-Home Assistant custom integration that takes readings from any PM2.5, PM10, temperature and humidity sensor entities (developed with a SONOFF AirGuard SAWF-07P paired locally via Matter) and uploads them to the [World Air Quality Index data platform](https://aqicn.org/data-feed/upload-api) on a schedule.
+Home Assistant custom integration that takes readings from any Home Assistant sensor entities that report PM2.5, PM10, temperature or humidity, from any device or integration, and uploads them to the [World Air Quality Index data platform](https://aqicn.org/data-feed/upload-api) on a schedule.
 
 ## How it works
 
-1. The AirGuard is a Matter-over-Wi-Fi device, so Home Assistant's built-in **Matter** integration talks to it locally and creates PM2.5, PM10, temperature and humidity sensor entities.
+1. You pick the sensor entities that hold your readings (PM2.5 is required; PM10, temperature and humidity are optional). They can come from any integration, such as Matter, ESPHome, MQTT or Zigbee.
 2. This integration listens to those entities. Each time they change during the upload window, it records the new value.
 3. At every interval (60 s by default), it averages the window and `POST`s it to `https://aqicn.org/sensor/upload/`. The upload includes `min`, `max`, `median` and `stddev` when the window has more than one sample, plus `averaging` set to the interval in seconds.
 
@@ -13,7 +13,7 @@ Temperature in °F or K is converted to °C. If a sensor is `unknown` or `unavai
 ## Requirements
 
 - Home Assistant 2024.11 or newer.
-- The AirGuard added to Home Assistant via the Matter integration (Settings → Devices & services → Add integration → Matter, then add the device with its Matter pairing code). Third-party Matter use needs the AirGuard's Matter pairing code; if it was set up in eWeLink first, share it to Home Assistant from there.
+- At least one PM2.5 sensor entity in Home Assistant. PM10, temperature and humidity entities are optional.
 - A WAQI token from <https://aqicn.org/data-platform/token/>.
 
 ## Installation
@@ -65,7 +65,7 @@ automation:
   - alias: WAQI upload failing
     triggers:
       - trigger: state
-        entity_id: sensor.waqi_uploader_sonoff_airguard_upload_status
+        entity_id: sensor.waqi_uploader_my_air_quality_station_upload_status
         to: error
         for: "00:10:00"
     actions:

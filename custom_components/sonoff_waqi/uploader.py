@@ -163,7 +163,7 @@ class WaqiUploader:
         readings: list[dict[str, Any]] = []
         for entity_id, (_key, specie, unit) in self._sources.items():
             samples = self._samples[entity_id]
-            # Matter sensors only report on change, so the current state is
+            # Many sensors (e.g. Matter) only report on change, so the current state is
             # still valid for this window if nothing changed.
             if not samples:
                 current = self._parse_state(entity_id, self.hass.states.get(entity_id))

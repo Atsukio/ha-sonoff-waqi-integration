@@ -39,10 +39,10 @@ OPTIONS = {
     CONF_STATION_NAME: "Home",
     CONF_LATITUDE: 3.1,
     CONF_LONGITUDE: 101.6,
-    CONF_PM25_ENTITY: "sensor.airguard_pm25",
-    CONF_PM10_ENTITY: "sensor.airguard_pm10",
-    CONF_TEMPERATURE_ENTITY: "sensor.airguard_temperature",
-    CONF_HUMIDITY_ENTITY: "sensor.airguard_humidity",
+    CONF_PM25_ENTITY: "sensor.station_pm25",
+    CONF_PM10_ENTITY: "sensor.station_pm10",
+    CONF_TEMPERATURE_ENTITY: "sensor.station_temperature",
+    CONF_HUMIDITY_ENTITY: "sensor.station_humidity",
     CONF_INTERVAL: 60,
 }
 
@@ -53,10 +53,10 @@ def auto_enable_custom_integrations(enable_custom_integrations):
 
 
 def _set_states(hass: HomeAssistant, pm25="12", pm10="20", temp="86", hum="60") -> None:
-    hass.states.async_set("sensor.airguard_pm25", pm25, {"unit_of_measurement": "µg/m³"})
-    hass.states.async_set("sensor.airguard_pm10", pm10, {"unit_of_measurement": "µg/m³"})
-    hass.states.async_set("sensor.airguard_temperature", temp, {"unit_of_measurement": "°F"})
-    hass.states.async_set("sensor.airguard_humidity", hum, {"unit_of_measurement": "%"})
+    hass.states.async_set("sensor.station_pm25", pm25, {"unit_of_measurement": "µg/m³"})
+    hass.states.async_set("sensor.station_pm10", pm10, {"unit_of_measurement": "µg/m³"})
+    hass.states.async_set("sensor.station_temperature", temp, {"unit_of_measurement": "°F"})
+    hass.states.async_set("sensor.station_humidity", hum, {"unit_of_measurement": "%"})
 
 
 async def _setup(hass: HomeAssistant) -> MockConfigEntry:
@@ -84,7 +84,7 @@ async def test_config_flow(hass: HomeAssistant, aioclient_mock) -> None:
     )
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["data"] == {CONF_STATION_ID: "my-station"}
-    assert result["options"][CONF_PM25_ENTITY] == "sensor.airguard_pm25"
+    assert result["options"][CONF_PM25_ENTITY] == "sensor.station_pm25"
 
 
 async def test_config_flow_bad_token(hass: HomeAssistant, aioclient_mock) -> None:
@@ -105,9 +105,9 @@ async def test_periodic_upload_averages(hass: HomeAssistant, aioclient_mock) -> 
     await _setup(hass)
 
     # Changes during the window are averaged
-    hass.states.async_set("sensor.airguard_pm25", "18", {"unit_of_measurement": "µg/m³"})
-    hass.states.async_set("sensor.airguard_pm25", "unavailable")
-    hass.states.async_set("sensor.airguard_pm25", "24", {"unit_of_measurement": "µg/m³"})
+    hass.states.async_set("sensor.station_pm25", "18", {"unit_of_measurement": "µg/m³"})
+    hass.states.async_set("sensor.station_pm25", "unavailable")
+    hass.states.async_set("sensor.station_pm25", "24", {"unit_of_measurement": "µg/m³"})
     await hass.async_block_till_done()
 
     async_fire_time_changed(hass, dt_util.utcnow() + timedelta(seconds=61))
@@ -198,4 +198,4 @@ async def test_options_flow_clears_optional_sensor(hass: HomeAssistant, aioclien
     assert CONF_PM10_ENTITY not in entry.options
     uploader = entry.runtime_data
     assert uploader.interval == timedelta(seconds=300)
-    assert "sensor.airguard_pm10" not in uploader._sources
+    assert "sensor.station_pm10" not in uploader._sources
