@@ -1,4 +1,4 @@
-"""SONOFF AirGuard (SAWF-07P) to WAQI uploader."""
+"""WAQI Station Uploader: push Home Assistant air quality sensors to WAQI."""
 
 from __future__ import annotations
 

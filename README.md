@@ -1,6 +1,6 @@
-# SONOFF AirGuard (SAWF-07P) to WAQI uploader
+# WAQI Station Uploader
 
-Home Assistant custom integration that takes the readings from a SONOFF AirGuard SAWF-07P (paired locally via Matter) and uploads them to the [World Air Quality Index data platform](https://aqicn.org/data-feed/upload-api) on a schedule.
+Home Assistant custom integration that takes readings from any PM2.5, PM10, temperature and humidity sensor entities (developed with a SONOFF AirGuard SAWF-07P paired locally via Matter) and uploads them to the [World Air Quality Index data platform](https://aqicn.org/data-feed/upload-api) on a schedule.
 
 ## How it works
 
@@ -26,7 +26,7 @@ Or add it manually:
 
 1. In Home Assistant, open **HACS** → the three-dot menu (top right) → **Custom repositories**.
 2. Paste `https://github.com/Atsukio/ha-sonoff-waqi-integration`, set the type to **Integration**, and click **Add**.
-3. Find **SONOFF AirGuard to WAQI Uploader** in HACS, click **Download**, then restart Home Assistant.
+3. Find **WAQI Station Uploader** in HACS, click **Download**, then restart Home Assistant.
 
 ### Manual
 
@@ -34,7 +34,7 @@ Or add it manually:
 
 ## Setup
 
-Settings → Devices & services → Add integration → **SONOFF AirGuard to WAQI Uploader**.
+Settings → Devices & services → Add integration → **WAQI Station Uploader**.
 
 | Field | Notes |
 |---|---|

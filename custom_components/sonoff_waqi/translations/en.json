@@ -1,9 +1,10 @@
 {
+  "title": "WAQI Station Uploader",
   "config": {
     "step": {
       "user": {
-        "title": "SONOFF AirGuard to WAQI",
-        "description": "Pick the AirGuard (SAWF-07P) sensor entities exposed by the Matter integration and enter your WAQI data platform token (https://aqicn.org/data-platform/token/).",
+        "title": "WAQI Station Uploader",
+        "description": "Pick the air quality sensor entities to upload (for example a SONOFF AirGuard via Matter) and enter your WAQI data platform token (https://aqicn.org/data-platform/token/).",
         "data": {
           "station_id": "Station ID",
           "token": "WAQI token",

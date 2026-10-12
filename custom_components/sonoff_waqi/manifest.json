@@ -1,6 +1,6 @@
 {
   "domain": "sonoff_waqi",
-  "name": "SONOFF AirGuard to WAQI Uploader",
+  "name": "WAQI Station Uploader",
   "codeowners": ["@Atsukio"],
   "config_flow": true,
   "dependencies": [],

@@ -1,4 +1,4 @@
-"""Constants for the SONOFF AirGuard to WAQI uploader."""
+"""Constants for the WAQI Station Uploader."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ CONF_TEMPERATURE_ENTITY: Final = "temperature_entity"
 CONF_HUMIDITY_ENTITY: Final = "humidity_entity"
 
 DEFAULT_STATION_ID: Final = "sonoff-sawf-07p"
-DEFAULT_STATION_NAME: Final = "SONOFF AirGuard"
+DEFAULT_STATION_NAME: Final = "My Air Quality Station"
 DEFAULT_INTERVAL: Final = 60  # seconds; WAQI recommends 1-minute averages
 MIN_INTERVAL: Final = 60
 MAX_INTERVAL: Final = 3600
