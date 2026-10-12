@@ -30,7 +30,7 @@ Or add it manually:
 
 ### Manual
 
- copy `custom_components/sonoff_waqi` into your Home Assistant `config/custom_components/` folder and restart.
+ copy `custom_components/waqi_station_uploader` into your Home Assistant `config/custom_components/` folder and restart.
 
 ## Setup
 
@@ -80,7 +80,7 @@ automation:
 ```yaml
 logger:
   logs:
-    custom_components.sonoff_waqi: debug
+    custom_components.waqi_station_uploader: debug
 ```
 
 The token is never logged or exposed in entity attributes.

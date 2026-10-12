@@ -1,5 +1,5 @@
 {
-  "domain": "sonoff_waqi",
+  "domain": "waqi_station_uploader",
   "name": "WAQI Station Uploader",
   "codeowners": ["@Atsukio"],
   "config_flow": true,

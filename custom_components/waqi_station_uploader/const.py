@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Final
 
-DOMAIN: Final = "sonoff_waqi"
+DOMAIN: Final = "waqi_station_uploader"
 
 UPLOAD_URL: Final = "https://aqicn.org/sensor/upload/"
 TOKEN_CHECK_URL: Final = "https://api.waqi.info/feed/here/"

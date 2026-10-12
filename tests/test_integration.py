@@ -1,4 +1,4 @@
-"""Tests for the sonoff_waqi integration."""
+"""Tests for the waqi_station_uploader integration."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResultType
 from homeassistant.util import dt as dt_util
 
-from custom_components.sonoff_waqi.const import (
+from custom_components.waqi_station_uploader.const import (
     CONF_HUMIDITY_ENTITY,
     CONF_INTERVAL,
     CONF_LATITUDE,
