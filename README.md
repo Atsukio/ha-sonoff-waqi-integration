@@ -20,12 +20,12 @@ Temperature in °F or K is converted to °C. If a sensor is `unknown` or `unavai
 
 ### HACS (custom repository)
 
-[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Atsukio&repository=ha-sonoff-waqi-integration&category=integration)
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Atsukio&repository=waqi-station-uploader&category=integration)
 
 Or add it manually:
 
 1. In Home Assistant, open **HACS** → the three-dot menu (top right) → **Custom repositories**.
-2. Paste `https://github.com/Atsukio/ha-sonoff-waqi-integration`, set the type to **Integration**, and click **Add**.
+2. Paste `https://github.com/Atsukio/waqi-station-uploader`, set the type to **Integration**, and click **Add**.
 3. Find **WAQI Station Uploader** in HACS, click **Download**, then restart Home Assistant.
 
 ### Manual
