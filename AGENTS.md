@@ -33,6 +33,7 @@ hacs.json          HACS metadata
 ## Conventions and gotchas
 
 - **Keep `strings.json` and `translations/en.json` identical.** Edit both together.
+- **No URLs in UI strings.** Hassfest rejects them. Use a `{placeholder}` and pass it with `description_placeholders` in `async_show_form` (e.g. `{token_url}` -> `TOKEN_PAGE_URL`).
 - **Don't change `DOMAIN` again** without a deliberate breaking release: it orphans users' existing config entries, entity IDs and history. Bump the major version if you do.
 - **The WAQI token is a secret.** Never log it or put it in entity attributes. Never open or print `.env` files.
 - Keep wording device-agnostic in code, docs and UI strings. Don't reintroduce AirGuard/SONOFF references, apart from historical mentions in the git history.
@@ -74,5 +75,4 @@ Only commit or push when the user asks.
 
 ## Possible follow-ups
 
-- Run the test suite and confirm it passes after the v2.0.0 rename.
 - Consider adding other WAQI species if the upload API supports them.

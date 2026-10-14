@@ -8,6 +8,7 @@ DOMAIN: Final = "waqi_station_uploader"
 
 UPLOAD_URL: Final = "https://aqicn.org/sensor/upload/"
 TOKEN_CHECK_URL: Final = "https://api.waqi.info/feed/here/"
+TOKEN_PAGE_URL: Final = "https://aqicn.org/data-platform/token/"
 
 CONF_TOKEN: Final = "token"
 CONF_STATION_ID: Final = "station_id"

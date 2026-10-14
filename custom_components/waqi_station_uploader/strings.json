@@ -4,7 +4,7 @@
     "step": {
       "user": {
         "title": "WAQI Station Uploader",
-        "description": "Pick the sensor entities to upload (PM2.5 is required; PM10, temperature and humidity are optional) and enter your WAQI data platform token (https://aqicn.org/data-platform/token/).",
+        "description": "Pick the sensor entities to upload (PM2.5 is required; PM10, temperature and humidity are optional) and enter your WAQI data platform token ({token_url}).",
         "data": {
           "station_id": "Station ID",
           "token": "WAQI token",

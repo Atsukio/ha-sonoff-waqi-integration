@@ -35,6 +35,7 @@ from .const import (
     DOMAIN,
     MAX_INTERVAL,
     MIN_INTERVAL,
+    TOKEN_PAGE_URL,
 )
 
 ENTITY_KEYS = (
@@ -142,6 +143,7 @@ class WaqiUploaderConfigFlow(ConfigFlow, domain=DOMAIN):
             step_id="user",
             data_schema=self.add_suggested_values_to_schema(schema, suggested),
             errors=errors,
+            description_placeholders={"token_url": TOKEN_PAGE_URL},
         )
 
     @staticmethod
