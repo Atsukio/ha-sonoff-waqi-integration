@@ -58,6 +58,31 @@ python -m venv venv
 
 `.github/workflows/validate.yml` runs on every push, on pull requests and weekly. It has three jobs: the HACS action, hassfest, and the pytest suite on Python 3.13. The HACS `brands` check is ignored because the icons ship locally in `brand/`. HACS's check needs the repo description, topics and LICENSE; all three are set on GitHub, so don't clear them.
 
+## Commit messages
+
+All commits follow [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/):
+
+```text
+<type>(<optional scope>)<optional !>: <imperative summary, lower case, no full stop>
+
+<optional body: what changed and why, wrapped at 72 columns>
+
+<optional footers: BREAKING CHANGE: ..., Co-Authored-By: ...>
+```
+
+- **Types:** `feat` (user-visible feature), `fix` (bug fix), `docs`, `refactor`,
+  `test`, `ci`, `build`, `chore`, `perf`, `style`, `revert`.
+- **Scope** is optional: `uploader`, `api`, `config-flow`, `sensor`, `button`, `brand`. For example, `feat(uploader): add NO2 species`.
+- **Breaking changes:** put `!` after the type/scope and add a
+  `BREAKING CHANGE:` footer that explains how to migrate.
+- **Versioning:** the commits since the last release decide the next version.
+  Any breaking change means a major bump, otherwise any `feat` means minor,
+  otherwise any `fix` means patch. `docs`, `ci`, `chore` and similar commits
+  on their own don't need a release.
+- Commits made by an AI agent end with its `Co-Authored-By` trailer as the
+  last footer.
+- Commits before 2026-10-14 predate this rule. Don't rewrite history to fix them.
+
 ## Release process
 
 HACS offers updates only when a new GitHub **release** is published. A tag on its own isn't enough.
