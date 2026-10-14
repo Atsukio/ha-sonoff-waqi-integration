@@ -51,19 +51,28 @@ python -m venv venv
 ./venv/bin/python -m pytest
 ```
 
-`pytest.ini` sets `asyncio_mode = auto`. `venv/` is gitignored. Run the tests after any change to the code or config flow; the earlier renames were not test-verified in this environment.
+`pytest.ini` sets `asyncio_mode = auto`. `venv/` is gitignored. Run the tests after any change to the code or config flow.
+
+## CI
+
+`.github/workflows/validate.yml` runs on every push, on pull requests and weekly. It has three jobs: the HACS action, hassfest, and the pytest suite on Python 3.13. The HACS `brands` check is ignored because the icons ship locally in `brand/`. HACS's check needs the repo description, topics and LICENSE; all three are set on GitHub, so don't clear them.
 
 ## Release process
 
+HACS offers updates only when a new GitHub **release** is published. A tag on its own isn't enough.
+
 1. Bump `"version"` in `custom_components/waqi_station_uploader/manifest.json` (semver; major for breaking changes).
-2. Commit and push to `main`.
-3. Tag `vX.Y.Z` (annotated) and push the tag. HACS uses tags and releases.
-4. Create the GitHub release with notes. The `gh` CLI may not be installed, in which case use the web UI.
+2. Commit and push to `main`, then wait for CI to pass.
+3. `gh release create vX.Y.Z --target main --title vX.Y.Z --notes "..."`. This creates the tag too, and it must match the manifest version. `gh` is installed and authenticated as `Atsukio`.
+
+Release history:
+
+- v1.0.0 (2026-10-09): tag only, under the old `sonoff_waqi` domain. No GitHub release.
+- v2.0.0 (2026-10-12): domain renamed to `waqi_station_uploader` (breaking). The GitHub release, with upgrade steps, was published 2026-10-14.
 
 Only commit or push when the user asks.
 
 ## Possible follow-ups
 
 - Run the test suite and confirm it passes after the v2.0.0 rename.
-- Add a GitHub release for `v2.0.0` with the migration notes (remove the old entry and the old `sonoff_waqi` folder, then re-add).
 - Consider adding other WAQI species if the upload API supports them.
